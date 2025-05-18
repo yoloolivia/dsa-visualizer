@@ -74,7 +74,7 @@ const Index = () => {
               key={index}
               title={category.name}
               description={category.description}
-              path={category.path}
+              path={`/category/${category.id}`}
               icon={category.items[0]?.icon || "📊"}
             />
           ))}

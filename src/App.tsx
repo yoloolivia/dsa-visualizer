@@ -8,6 +8,10 @@ import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
 import StackPage from "./pages/StackPage";
 import QueuePage from "./pages/QueuePage";
+import ArrayPage from "./pages/ArrayPage";
+import LinkedListPage from "./pages/LinkedListPage";
+import BinaryTreePage from "./pages/BinaryTreePage";
+import BSTPage from "./pages/BSTPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +31,10 @@ const App = () => (
           {/* Visualizer Routes */}
           <Route path="/visualizer/stack" element={<StackPage />} />
           <Route path="/visualizer/queue" element={<QueuePage />} />
+          <Route path="/visualizer/array" element={<ArrayPage />} />
+          <Route path="/visualizer/linked-list" element={<LinkedListPage />} />
+          <Route path="/visualizer/binary-tree" element={<BinaryTreePage />} />
+          <Route path="/visualizer/bst" element={<BSTPage />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
