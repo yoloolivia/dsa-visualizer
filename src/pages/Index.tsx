@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '@/components/SearchBar';
 import { Card, CardContent } from '@/components/ui/card';
+import Layout from '@/components/Layout';
+import { categoriesData } from '@/data/categoriesData';
 
 const CategoryCard = ({ title, description, path, icon }: { 
   title: string; 
@@ -24,55 +26,16 @@ const CategoryCard = ({ title, description, path, icon }: {
 );
 
 const Index = () => {
-  const categories = [
-    {
-      title: "Linear Data Structures",
-      description: "Arrays, Linked Lists, Stacks, Queues, and more",
-      path: "/category/linear",
-      icon: "📚"
-    },
-    {
-      title: "Tree-Based Structures",
-      description: "Binary Trees, BST, AVL, Heaps, and more",
-      path: "/category/trees",
-      icon: "🌳"
-    },
-    {
-      title: "Sorting Algorithms",
-      description: "Bubble Sort, Quick Sort, Merge Sort, and more",
-      path: "/category/sorting",
-      icon: "🔄"
-    },
-    {
-      title: "Searching Algorithms",
-      description: "Linear Search, Binary Search, and more",
-      path: "/category/searching",
-      icon: "🔍"
-    },
-    {
-      title: "Graph Algorithms",
-      description: "Dijkstra's, BFS, DFS, A*, and more",
-      path: "/category/graph",
-      icon: "🕸️"
-    },
-    {
-      title: "Hash-Based Structures",
-      description: "Hash Tables, Hash Maps, and more",
-      path: "/category/hash",
-      icon: "🗝️"
-    }
-  ];
-
   const popularAlgorithms = [
     { name: "Stack", path: "/visualizer/stack", icon: "📚" },
-    { name: "Queue", path: "/visualizer/queue", icon: "📦" },
+    { name: "Queue", path: "/visualizer/queue", icon: "🧵" },
     { name: "Binary Search Tree", path: "/visualizer/bst", icon: "🌳" },
-    { name: "Bubble Sort", path: "/visualizer/bubble-sort", icon: "🔄" }
+    { name: "Bubble Sort", path: "/visualizer/bubble-sort", icon: "🫧" }
   ];
 
   return (
-    <div className="min-h-screen bg-dsavis-dark flex flex-col">
-      <header className="bg-dsavis-dark py-16 px-4">
+    <Layout>
+      <header className="py-16 px-4">
         <div className="container mx-auto max-w-6xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-dsavis-primary mb-6">
             DSA Visualizer
@@ -106,18 +69,18 @@ const Index = () => {
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category, index) => (
+          {categoriesData.map((category, index) => (
             <CategoryCard
               key={index}
-              title={category.title}
+              title={category.name}
               description={category.description}
               path={category.path}
-              icon={category.icon}
+              icon={category.items[0]?.icon || "📊"}
             />
           ))}
         </div>
       </main>
-    </div>
+    </Layout>
   );
 };
 

@@ -5,46 +5,36 @@ import SearchBar from './SearchBar';
 
 const Navbar = () => {
   const categories = [
-    { name: 'Data Structures', path: '/category/data-structures' },
+    { name: 'Linear Structures', path: '/category/linear' },
+    { name: 'Tree Structures', path: '/category/trees' },
     { name: 'Sorting', path: '/category/sorting' },
     { name: 'Searching', path: '/category/searching' },
-    { name: 'Graph', path: '/category/graph' }
+    { name: 'Graph', path: '/category/graph' },
+    { name: 'Hash', path: '/category/hash' }
   ];
   
   return (
-    <nav className="bg-dsavis-dark border-b border-dsavis-secondary sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16 items-center">
-          <div className="flex items-center">
-            <Link to="/" className="flex items-center">
-              <h1 className="text-xl font-bold text-dsavis-primary mr-4">DSA Visualizer</h1>
-            </Link>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="flex items-center space-x-6">
-              {categories.map((category) => (
-                <NavLink
-                  key={category.name}
-                  to={category.path}
-                  className={({ isActive }) => 
-                    `px-2 py-1 text-sm font-medium rounded hover:text-dsavis-primary transition-colors ${
-                      isActive ? 'text-dsavis-primary' : 'text-dsavis-light'
-                    }`
-                  }
-                >
-                  {category.name}
-                </NavLink>
-              ))}
-            </div>
-          </div>
-          
-          <div className="flex items-center">
-            <SearchBar size="sm" />
-          </div>
-        </div>
+    <div className="flex items-center space-x-4">
+      <div className="hidden md:flex items-center space-x-6">
+        {categories.map((category) => (
+          <NavLink
+            key={category.name}
+            to={category.path}
+            className={({ isActive }) => 
+              `px-2 py-1 text-sm font-medium rounded hover:text-dsavis-primary transition-colors ${
+                isActive ? 'text-dsavis-primary' : 'text-dsavis-light'
+              }`
+            }
+          >
+            {category.name}
+          </NavLink>
+        ))}
       </div>
-    </nav>
+      
+      <div className="flex items-center">
+        <SearchBar size="sm" />
+      </div>
+    </div>
   );
 };
 
